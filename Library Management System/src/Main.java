@@ -99,6 +99,11 @@ public class Main {
         library.addBook(new Book("Python for Beginners"));
         library.addBook(new Book("Data Structures"));
 
+        System.out.println("User is :-");
+        Scanner sc=new Scanner(System.in);
+        String user=sc.nextLine();
+        User user1 = new User(user);
+
         User user1 = new User("Vargav");
 
         library.showBooks();
