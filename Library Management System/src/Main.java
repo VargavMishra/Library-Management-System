@@ -99,7 +99,7 @@ public class Main {
         library.addBook(new Book("Python for Beginners"));
         library.addBook(new Book("Data Structures"));
 
-        User user1 = new User("Alice");
+        User user1 = new User("Vargav");
 
         library.showBooks();
         library.issueBook("Java Basics", user1);
