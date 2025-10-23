@@ -94,23 +94,37 @@ class Library {
 public class Main {
     public static void main(String[] args) {
         Library library = new Library();
+        Scanner sc = new Scanner(System.in);
 
         library.addBook(new Book("Java Basics"));
         library.addBook(new Book("Python for Beginners"));
         library.addBook(new Book("Data Structures"));
 
-        System.out.println("User is :-");
-        Scanner sc=new Scanner(System.in);
-        String user=sc.nextLine();
-        User user1 = new User(user);
+        while (true) {
+            System.out.println("\nName of person: ");
+            String username = sc.nextLine();
+            User user = new User(username);
 
-        User user1 = new User("Vargav");
+            library.showBooks();
 
-        library.showBooks();
-        library.issueBook("Java Basics", user1);
-        library.showBooks();
+            System.out.println("\nEnter the name of the book to issue: ");
+            String bookToIssue = sc.nextLine();
+            library.issueBook(bookToIssue, user);
+            library.showBooks();
 
-        library.returnBook("Java Basics", user1);
-        library.showBooks();
+            System.out.println("\nEnter the name of the book to return: ");
+            String bookToReturn = sc.nextLine();
+            library.returnBook(bookToReturn, user);
+            library.showBooks();
+
+            System.out.println("\nDo you want to continue for another user? (yes/no): ");
+            String choice = sc.nextLine();
+            if (choice.equalsIgnoreCase("no")) {
+                System.out.println("Exiting the system. Thank you!");
+                break;
+            }
+        }
+
+        sc.close();
     }
 }
